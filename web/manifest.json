@@ -1,6 +1,6 @@
 {
-    "name": "techcloud_login_demo",
-    "short_name": "techcloud_login_demo",
+    "name": "techcloudpro_demo",
+    "short_name": "techcloudpro_demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

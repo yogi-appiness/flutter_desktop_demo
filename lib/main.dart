@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: MaterialApp(
-        title: 'TechCloud Demo',
+        title: 'TechCloudPro Demo',
         theme: ThemeData(
             primarySwatch: Colors.pink,
             scaffoldBackgroundColor: Colors.white70),

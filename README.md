@@ -1,6 +1,6 @@
-# techcloud_login_demo
+# techcloudpro_demo
 
-A new Flutter project.
+Demo Login App for TechCloudPro.
 
 ## Getting Started
 

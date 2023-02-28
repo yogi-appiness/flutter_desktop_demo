@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mongo_dart/mongo_dart.dart';
-import 'package:techcloud_login_demo/common/constants.dart';
-import 'package:techcloud_login_demo/common/user.dart';
+import 'package:techcloudpro_demo/common/constants.dart';
+import 'package:techcloudpro_demo/common/user.dart';
 
 part 'login_state.dart';
 

@@ -1,4 +1,4 @@
-package com.example.techcloud_login_demo
+package com.example.techcloudpro_demo
 
 import io.flutter.embedding.android.FlutterActivity
 
