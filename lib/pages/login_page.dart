@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
+import 'package:techcloudpro_demo/pages/forgot_password_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -105,7 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                             padding:
                                 const EdgeInsets.only(top: 8.0, bottom: 24.0),
                             child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .push(ForgotPasswordPage.createRoute());
+                                },
                                 child: const Text("Forgot password?")),
                           ),
                           const SizedBox(height: 16.0),

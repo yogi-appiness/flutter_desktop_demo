@@ -197,7 +197,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   String? passwordValidator(String? text) {
-    if ((text?.trim().length ?? 0) < 8) {
+    if ((text?.length ?? 0) < 8) {
       return "Please provide atleast 8 characters";
     }
 
