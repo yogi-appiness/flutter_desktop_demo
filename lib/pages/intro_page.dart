@@ -29,6 +29,34 @@ class IntroPage extends StatelessWidget {
               ),
               height: 360.0,
               width: 360.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/techcloud_logo.png"),
+                  const SizedBox(height: 16.0),
+                  Text(
+                    "Welcome to the demo desktop application",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 24.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Already Registered? "),
+                      TextButton(onPressed: () {}, child: const Text("Login"))
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("New User? "),
+                      TextButton(
+                          onPressed: () {}, child: const Text("Register"))
+                    ],
+                  )
+                ],
+              ),
             ),
           )
         ],
