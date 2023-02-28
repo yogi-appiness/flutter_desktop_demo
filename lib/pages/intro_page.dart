@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:techcloudpro_demo/pages/login_page.dart';
+import 'package:techcloudpro_demo/pages/sign_up_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -61,7 +62,11 @@ class IntroPage extends StatelessWidget {
                     children: [
                       const Text("New User? "),
                       TextButton(
-                          onPressed: () {}, child: const Text("Register"))
+                          onPressed: () {
+                            Navigator.of(context)
+                                .push(SignUpPage.createRoute());
+                          },
+                          child: const Text("Register"))
                     ],
                   )
                 ],

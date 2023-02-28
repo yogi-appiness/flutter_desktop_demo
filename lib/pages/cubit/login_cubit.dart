@@ -32,6 +32,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<bool> loginUser(
       {required String username, required String password}) async {
     try {
+      emit(state.copyWith(isBusy: false));
       final result = await usersCollection
           .findOne({"username": username, "password": password});
 
@@ -50,15 +51,35 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   /// Register for a new user
-  Future<void> registerNewUser(User user) async {
+  Future<bool> registerNewUser(
+      {required String name,
+      required String username,
+      required String password}) async {
     try {
+      emit(state.copyWith(isBusy: false));
+      final existingUser =
+          await usersCollection.findOne({"username": username});
+      if (existingUser != null) {
+        emit(state.copyWith(errorMessage: "User already exists"));
+        return false;
+      }
+      final user = User(
+          id: ObjectId(), name: name, username: username, password: password);
+
       final result = await usersCollection.insert(user.toJson());
 
       debugPrint(result.toString());
 
-      emit(state.copyWith(user: user));
+      emit(state.copyWith(
+          errorMessage: "Successfully registered. Please login."));
+      return true;
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));
+      return false;
     }
+  }
+
+  Future<void> logoutUser() async {
+    emit(state.copyWith(logoutUser: true));
   }
 }

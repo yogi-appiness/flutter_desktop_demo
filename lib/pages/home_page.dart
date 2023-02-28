@@ -12,6 +12,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = BlocProvider.of<LoginCubit>(context).state.user;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.red,
+        title: const Text("TechCloud Pro Dashboard"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                BlocProvider.of<LoginCubit>(context).logoutUser();
+              },
+              icon: const Icon(Icons.logout)),
+        ],
+      ),
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -37,7 +49,7 @@ class HomePage extends StatelessWidget {
               height: 240.0,
               width: 240.0,
               child: Text(
-                "Welcome \n ${user?.name},\n to TechCloudPro dashboard",
+                "Welcome \n ${user?.name},\n",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     color: Colors.black, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,

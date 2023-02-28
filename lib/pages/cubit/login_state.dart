@@ -16,13 +16,13 @@ class LoginState extends Equatable {
   /// Error
   final String? errorMessage;
 
-  LoginState copyWith({
-    User? user,
-    bool? isBusy,
-    String? errorMessage,
-  }) =>
+  LoginState copyWith(
+          {User? user,
+          bool? isBusy,
+          String? errorMessage,
+          bool logoutUser = false}) =>
       LoginState(
-        user: user ?? this.user,
+        user: (logoutUser) ? null : user ?? this.user,
         isBusy: isBusy ?? this.isBusy,
         errorMessage: errorMessage,
       );

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                   color: CupertinoColors.systemGrey6, width: 2.5),
               borderRadius: BorderRadius.circular(12.0),
             ),
-            contentPadding: const EdgeInsets.all(12.0),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
             filled: true,
             fillColor: Colors.blueGrey.shade50,
           ),
@@ -44,8 +44,16 @@ class MyApp extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listenWhen: (previous, current) => current.errorMessage != null,
       listener: (context, state) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(state.errorMessage ?? "")));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+            state.errorMessage ?? "",
+            style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0),
+          ),
+          backgroundColor: Colors.orange,
+        ));
       },
       builder: (context, state) {
         if (state.isBusy) {

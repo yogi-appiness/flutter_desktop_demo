@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
-import 'package:techcloudpro_demo/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -46,98 +45,111 @@ class _LoginPageState extends State<LoginPage> {
               ),
               padding: const EdgeInsets.all(24.0),
               width: 360.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/techcloud_logo.png"),
-                  const SizedBox(height: 16.0),
-                  Text(
-                    "User Login",
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 24.0),
-                  FormBuilder(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _titleWidget("Please enter login credentials"),
-                        const SizedBox(height: 16.0),
-                        _titleWidget("Username"),
-                        const SizedBox(height: 8.0),
-                        FormBuilderTextField(
-                          name: 'username',
-                          controller: usernameController,
-                          validator: FormBuilderValidators.compose([
-                            FormBuilderValidators.required(
-                                errorText: "* Required"),
-                          ]),
-                        ),
-                        const SizedBox(height: 16.0),
-                        _titleWidget("Password"),
-                        const SizedBox(height: 8.0),
-                        FormBuilderTextField(
-                          name: 'password',
-                          obscureText: true,
-                          controller: passwordController,
-                          validator: FormBuilderValidators.compose(
-                            [
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/techcloud_logo.png"),
+                    const SizedBox(height: 16.0),
+                    Text(
+                      "User Login",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 24.0),
+                    FormBuilder(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _titleWidget("Please enter login credentials"),
+                          const SizedBox(height: 16.0),
+                          _titleWidget("Username"),
+                          const SizedBox(height: 8.0),
+                          FormBuilderTextField(
+                            name: 'username',
+                            maxLength: 25,
+                            decoration: const InputDecoration(
+                              counterText: "",
+                            ),
+                            controller: usernameController,
+                            validator: FormBuilderValidators.compose([
                               FormBuilderValidators.required(
                                   errorText: "* Required"),
-                            ],
+                            ]),
                           ),
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(top: 8.0, bottom: 24.0),
-                          child: TextButton(
-                              onPressed: () {},
-                              child: const Text("Forgot password?")),
-                        ),
-                        const SizedBox(height: 16.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            OutlinedButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              style: OutlinedButton.styleFrom(
-                                foregroundColor: Colors.red,
-                                side: const BorderSide(
-                                    width: 1.0, color: Colors.red),
-                              ),
-                              child: const Text("Cancel"),
+                          const SizedBox(height: 16.0),
+                          _titleWidget("Password"),
+                          const SizedBox(height: 8.0),
+                          FormBuilderTextField(
+                            name: 'password',
+                            maxLength: 25,
+                            decoration: const InputDecoration(
+                              counterText: "",
                             ),
-                            const SizedBox(width: 12.0),
-                            ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState?.validate() ??
-                                    false) {
-                                  final result =
-                                      await BlocProvider.of<LoginCubit>(context)
-                                          .loginUser(
-                                              username: usernameController.text
-                                                  .trim(),
-                                              password: passwordController.text
-                                                  .trim());
+                            obscureText: true,
+                            controller: passwordController,
+                            validator: FormBuilderValidators.compose(
+                              [
+                                FormBuilderValidators.required(
+                                    errorText: "* Required"),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 8.0, bottom: 24.0),
+                            child: TextButton(
+                                onPressed: () {},
+                                child: const Text("Forgot password?")),
+                          ),
+                          const SizedBox(height: 16.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              OutlinedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                style: OutlinedButton.styleFrom(
+                                  foregroundColor: Colors.red,
+                                  side: const BorderSide(
+                                      width: 1.0, color: Colors.red),
+                                ),
+                                child: const Text("Cancel"),
+                              ),
+                              const SizedBox(width: 12.0),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState?.validate() ??
+                                      false) {
+                                    final result = await BlocProvider.of<
+                                            LoginCubit>(context)
+                                        .loginUser(
+                                            username:
+                                                usernameController.text.trim(),
+                                            password:
+                                                passwordController.text.trim());
 
-                                  if (result) {
-                                    Navigator.pop(context);
+                                    if (result) {
+                                      Navigator.pop(context);
+                                    }
                                   }
-                                }
-                              },
-                              child: const Text("Login"),
-                            )
-                          ],
-                        )
-                      ],
+                                },
+                                child: const Text("Login"),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           )
