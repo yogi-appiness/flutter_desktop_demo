@@ -26,14 +26,39 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isBusy: false));
     }
-    db = await Db.create(Constants.mongoUrl);
-    await db.open();
-    debugPrint("Connection status: ${db.isConnected}");
-    usersCollection = db.collection(Constants.usersCollection);
+  }
+
+  /// Login user with credentials
+  Future<bool> loginUser(
+      {required String username, required String password}) async {
+    try {
+      final result = await usersCollection
+          .findOne({"username": username, "password": password});
+
+      if (result != null) {
+        final user = User.fromJson(result);
+        emit(state.copyWith(user: user));
+        return true;
+      } else {
+        emit(state.copyWith(errorMessage: "Invalid username/password"));
+      }
+      return false;
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+      return false;
+    }
   }
 
   /// Register for a new user
   Future<void> registerNewUser(User user) async {
-    await usersCollection.insert(user.toJson());
+    try {
+      final result = await usersCollection.insert(user.toJson());
+
+      debugPrint(result.toString());
+
+      emit(state.copyWith(user: user));
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+    }
   }
 }

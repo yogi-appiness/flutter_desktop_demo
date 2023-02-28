@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techcloudpro_demo/pages/login_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -32,7 +33,11 @@ class IntroPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/techcloud_logo.png"),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0, vertical: 16.0),
+                    child: Image.asset("assets/techcloud_logo.png"),
+                  ),
                   const SizedBox(height: 16.0),
                   Text(
                     "Welcome to the demo desktop application",
@@ -44,7 +49,11 @@ class IntroPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Already Registered? "),
-                      TextButton(onPressed: () {}, child: const Text("Login"))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push(LoginPage.createRoute());
+                          },
+                          child: const Text("Login"))
                     ],
                   ),
                   Row(

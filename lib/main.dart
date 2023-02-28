@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:techcloudpro_demo/pages/home_page.dart';
 
 import 'pages/cubit/login_cubit.dart';
 import 'pages/intro_page.dart';
@@ -17,10 +19,21 @@ class MyApp extends StatelessWidget {
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'TechCloudPro Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.white70,
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: CupertinoColors.systemGrey6, width: 2.5),
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            contentPadding: const EdgeInsets.all(12.0),
+            filled: true,
+            fillColor: Colors.blueGrey.shade50,
+          ),
         ),
         home: Scaffold(body: _body()),
       ),
@@ -63,6 +76,11 @@ class MyApp extends StatelessWidget {
             ],
           );
         }
+
+        if (state.user != null) {
+          return const HomePage();
+        }
+
         return const IntroPage();
       },
     );
