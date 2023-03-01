@@ -1,16 +1,21 @@
-# techcloudpro_demo
+# TechCloudPro Flutter desktop application
 
-Demo Login App for TechCloudPro.
+A demo application where users can SignUp and Login into the User dashboard
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Features/Functionality
+- App Intro page on startup
+- Login page for already registered users
+- Sign up for new users
+- Length and character validations for Name, Username and password
+- Forgot password where users can reset their password if the name and username provided correctly
+- User dashboard
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technical Requirements:
+- Desktop (Mac, Linux or Windows)
+- VSCode with Flutter SDK installed
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+Built with Flutter (v3.7.1) and MongoDB database (v6.0)
