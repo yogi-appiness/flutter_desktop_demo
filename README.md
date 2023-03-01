@@ -12,10 +12,10 @@ A demo application where users can SignUp and Login into the User dashboard
 - User dashboard
 
 
+Built with Flutter (v3.7.1) and MongoDB database (v6.0)
+Uses Cubit for state management. MongoDB plugin handles all the database operations
+
+
 ## Technical Requirements:
 - Desktop (Mac, Linux or Windows)
 - VSCode with Flutter SDK installed
-
-
-
-Built with Flutter (v3.7.1) and MongoDB database (v6.0)
