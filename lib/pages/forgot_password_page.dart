@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
-import 'package:techcloudpro_demo/pages/login_page.dart';
+
+import 'cubit/login_cubit.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -153,19 +153,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                 onPressed: () async {
                                   if (_formKey.currentState?.validate() ??
                                       false) {
-                                    // final result =
-                                    //     await BlocProvider.of<LoginCubit>(
-                                    //             context)
-                                    //         .registerNewUser(
-                                    //   name: nameController.text.trim(),
-                                    //   username: usernameController.text.trim(),
-                                    //   password: passwordController.text.trim(),
-                                    // );
+                                    final result =
+                                        await BlocProvider.of<LoginCubit>(
+                                                context)
+                                            .resetPassword(
+                                      name: nameController.text.trim(),
+                                      username: usernameController.text.trim(),
+                                      password: newPwdController.text.trim(),
+                                    );
 
-                                    // if (result) {
-                                    //   Navigator.pushReplacement(
-                                    //       context, LoginPage.createRoute());
-                                    // }
+                                    if (result) {
+                                      Navigator.pop(context);
+                                    }
                                   }
                                 },
                                 child: const Text("Reset"),

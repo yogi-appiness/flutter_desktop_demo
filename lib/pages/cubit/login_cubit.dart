@@ -79,6 +79,40 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  /// Reset password
+  Future<bool> resetPassword(
+      {required String name,
+      required String username,
+      required String password}) async {
+    try {
+      emit(state.copyWith(isBusy: false));
+      final user =
+          await usersCollection.findOne({"username": username, "name": name});
+      if (user == null) {
+        emit(state.copyWith(errorMessage: "Username and name does not match"));
+        return false;
+      }
+
+      // Update new password
+      final result = await usersCollection.updateOne(
+          where.eq("username", username), modify.set("password", password));
+
+      if (result.isSuccess) {
+        emit(state.copyWith(
+            errorMessage: "Successfully reset password. Please login."));
+      } else {
+        emit(state.copyWith(
+            errorMessage: "An error occured. Please try again."));
+        return false;
+      }
+
+      return true;
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+      return false;
+    }
+  }
+
   Future<void> logoutUser() async {
     emit(state.copyWith(logoutUser: true));
   }
