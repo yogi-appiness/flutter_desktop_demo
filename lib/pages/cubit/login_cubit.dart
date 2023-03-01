@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
       usersCollection = db.collection(Constants.usersCollection);
 
       // Initialize caching and check if user logged in
-      // prefs = await SharedPreferences.getInstance();
+      prefs = await SharedPreferences.getInstance();
 
       // final username = prefs.getString(Constants.loggedInUser);
 
