@@ -3,7 +3,7 @@ part of 'login_cubit.dart';
 class LoginState extends Equatable {
   const LoginState({
     this.user,
-    this.isBusy = true,
+    this.isBusy = false,
     this.errorMessage,
   });
 

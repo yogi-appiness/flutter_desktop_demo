@@ -27,18 +27,18 @@ class LoginCubit extends Cubit<LoginState> {
       usersCollection = db.collection(Constants.usersCollection);
 
       // Initialize caching and check if user logged in
-      prefs = await SharedPreferences.getInstance();
+      // prefs = await SharedPreferences.getInstance();
 
-      final username = prefs.getString(Constants.loggedInUser);
+      // final username = prefs.getString(Constants.loggedInUser);
 
-      if (username != null) {
-        final userData = await usersCollection.findOne({"username": username});
+      // if (username != null) {
+      //   final userData = await usersCollection.findOne({"username": username});
 
-        if (userData != null) {
-          final user = User.fromJson(userData);
-          emit(state.copyWith(user: user));
-        }
-      }
+      //   if (userData != null) {
+      //     final user = User.fromJson(userData);
+      //     emit(state.copyWith(user: user));
+      //   }
+      // }
       emit(state.copyWith(isBusy: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isBusy: false));

@@ -131,7 +131,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             ),
                             obscureText: true,
                             controller: confirmPwdController,
-                            validator: passwordValidator,
+                            validator: cnfrmPasswordValidator,
                           ),
                           const SizedBox(height: 16.0),
                           Row(
@@ -198,11 +198,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       return "Only Alphabets and Numbers allowed";
     }
 
+    return null;
+  }
+
+  String? cnfrmPasswordValidator(String? text) {
     if (newPwdController.text != confirmPwdController.text) {
       return "Passwords do not match";
     }
 
-    return null;
+    return passwordValidator(text);
   }
 
   _titleWidget(String title) => Text(
