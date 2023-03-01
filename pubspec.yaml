@@ -37,6 +37,7 @@ dependencies:
   form_builder_validators: ^8.5.0
   mongo_dart: ^0.8.2
   realm: ^1.0.2
+  shared_preferences: ^2.0.18
 
 dev_dependencies:
   flutter_lints: ^2.0.0

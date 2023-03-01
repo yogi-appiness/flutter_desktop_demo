@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mongo_dart/mongo_dart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:techcloudpro_demo/common/constants.dart';
 import 'package:techcloudpro_demo/common/user.dart';
 
@@ -15,6 +16,8 @@ class LoginCubit extends Cubit<LoginState> {
   late Db db;
   late DbCollection usersCollection;
 
+  late SharedPreferences prefs;
+
   /// Establish connection and initialize db and collection.
   Future<void> initialize() async {
     try {
@@ -22,6 +25,20 @@ class LoginCubit extends Cubit<LoginState> {
       await db.open();
       debugPrint("Connection status: ${db.isConnected}");
       usersCollection = db.collection(Constants.usersCollection);
+
+      // Initialize caching and check if user logged in
+      prefs = await SharedPreferences.getInstance();
+
+      final username = prefs.getString(Constants.loggedInUser);
+
+      if (username != null) {
+        final userData = await usersCollection.findOne({"username": username});
+
+        if (userData != null) {
+          final user = User.fromJson(userData);
+          emit(state.copyWith(user: user));
+        }
+      }
       emit(state.copyWith(isBusy: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isBusy: false));
@@ -39,6 +56,8 @@ class LoginCubit extends Cubit<LoginState> {
       if (result != null) {
         final user = User.fromJson(result);
         emit(state.copyWith(user: user));
+
+        prefs.setString(Constants.loggedInUser, user.username);
         return true;
       } else {
         emit(state.copyWith(errorMessage: "Invalid username/password"));
@@ -114,6 +133,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> logoutUser() async {
+    prefs.remove(Constants.loggedInUser);
     emit(state.copyWith(logoutUser: true));
   }
 }

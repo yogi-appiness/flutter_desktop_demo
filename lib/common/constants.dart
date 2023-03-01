@@ -6,4 +6,6 @@ class Constants {
       "mongodb+srv://yogendra_dev:techcloudTest@samplecatalog.vx1t21h.mongodb.net/techcloud_demo?retryWrites=true&w=majority";
 
   static const String usersCollection = "users";
+
+  static const String loggedInUser = "logged_in_user";
 }
