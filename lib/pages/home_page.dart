@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.white,
+                          color: const Color.fromARGB(255, 188, 255, 245),
                           boxShadow: const [
                             BoxShadow(
                               color: Colors.grey,
@@ -108,6 +108,7 @@ class _HomePageState extends State<HomePage> {
                         child: FormBuilder(
                           key: _formKey,
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               _titleWidget("Consumption GDP (INR Crores)"),
@@ -221,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.white,
+                          color: const Color.fromARGB(255, 188, 255, 245),
                           boxShadow: const [
                             BoxShadow(
                               color: Colors.grey,
