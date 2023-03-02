@@ -27,12 +27,14 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.white70,
           inputDecorationTheme: InputDecorationTheme(
+            isDense: true,
             border: OutlineInputBorder(
               borderSide: const BorderSide(
                   color: CupertinoColors.systemGrey6, width: 2.5),
-              borderRadius: BorderRadius.circular(12.0),
+              borderRadius: BorderRadius.circular(8.0),
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 14.0),
             filled: true,
             fillColor: Colors.blueGrey.shade50,
           ),

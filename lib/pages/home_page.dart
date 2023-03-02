@@ -100,7 +100,8 @@ class _HomePageState extends State<HomePage> {
                             )
                           ],
                         ),
-                        width: 400.0,
+                        width: 440.0,
+                        height: 550.0,
                         margin: const EdgeInsets.only(right: 64.0),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16.0, vertical: 24.0),
@@ -232,6 +233,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         padding: const EdgeInsets.all(64.0),
+                        height: 550.0,
                         child: Column(
                           children: [
                             const Padding(
