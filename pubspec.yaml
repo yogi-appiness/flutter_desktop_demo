@@ -38,6 +38,7 @@ dependencies:
   mongo_dart: ^0.8.2
   realm: ^1.0.2
   shared_preferences: ^2.0.18
+  syncfusion_flutter_charts: ^20.4.52
 
 dev_dependencies:
   flutter_lints: ^2.0.0
