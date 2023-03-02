@@ -2,6 +2,12 @@
 
 A demo application where users can SignUp and Login into the User dashboard
 
+### Screenshots
+![alt text](https://user-images.githubusercontent.com/117373571/222362720-6a2e91d5-8011-4d5b-ba13-c88b2f75c6b7.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222362771-6c627b0f-8726-43d4-adbe-3cc4a3de9f0b.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222362829-889a8703-1803-4c07-ba64-6918770fe389.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222362846-31b4e637-dc8d-412c-bd5e-bc1d7f73affa.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222362880-c8913e22-01fb-4c67-b1ba-f848402fe1e1.png)
 
 ## Features/Functionality
 - App Intro page on startup
@@ -14,13 +20,13 @@ A demo application where users can SignUp and Login into the User dashboard
 
 ## Getting Started
 ### Requirements
-- Desktop running Mac, Linux or Windows. [Mac preferred]
+- Desktop running Mac, Linux or Windows.
 - Flutter SDK installed (Flutter 3 or above)
 - VSCode with flutter and dart plugin
 ### How to install and run
 1. Clone the repo/Download as zip and extract.
 2. Open in VSCode.
-3. In terminal, run 'flutter pub get' at project folder
+3. In terminal, run 'flutter pub get' in project folder
 4. Run the application in the MacOS or Windows environment
 
 ## Technical tools
