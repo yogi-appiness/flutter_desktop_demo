@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:techcloudpro_demo/pages/login_page.dart';
 import 'package:techcloudpro_demo/pages/sign_up_page.dart';
 
+/// IntroPage: The page which is shown at the start of the application
+/// User can navigate to Login or register page from here
+/// AUTHOR: Yogendra J Pai
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
 
@@ -34,11 +37,11 @@ class IntroPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24.0, vertical: 16.0),
-                    child: Image.asset("assets/techcloud_logo.png"),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(
+                  //       horizontal: 24.0, vertical: 16.0),
+                  //   child: Image.asset("assets/techcloud_logo.png"),
+                  // ),
                   const SizedBox(height: 16.0),
                   Text(
                     "Welcome to the demo desktop application",

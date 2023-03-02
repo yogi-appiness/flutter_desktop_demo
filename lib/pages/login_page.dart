@@ -5,6 +5,10 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
 import 'package:techcloudpro_demo/pages/forgot_password_page.dart';
 
+/// LoginPage: The page where user can login using his username and password
+/// User can navigate to forgot password page in order to reset the password
+/// AUTHOR: Yogendra J Pai
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -51,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset("assets/techcloud_logo.png"),
+                    //Image.asset("assets/techcloud_logo.png"),
                     const SizedBox(height: 16.0),
                     Text(
                       "User Login",
@@ -162,6 +166,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  /// Text field title
   _titleWidget(String title) => Text(
         title,
         textAlign: TextAlign.center,

@@ -8,6 +8,9 @@ import 'package:techcloudpro_demo/common/user.dart';
 
 part 'login_state.dart';
 
+/// This cubit handles all the state management.
+/// Updates the user state based on if logged in or not
+/// AUTHOR: Yogendra J Pai
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(const LoginState()) {
     Future.microtask(() => initialize());
@@ -30,10 +33,8 @@ class LoginCubit extends Cubit<LoginState> {
       prefs = await SharedPreferences.getInstance();
 
       // final username = prefs.getString(Constants.loggedInUser);
-
       // if (username != null) {
       //   final userData = await usersCollection.findOne({"username": username});
-
       //   if (userData != null) {
       //     final user = User.fromJson(userData);
       //     emit(state.copyWith(user: user));
@@ -53,6 +54,7 @@ class LoginCubit extends Cubit<LoginState> {
       final result = await usersCollection
           .findOne({"username": username, "password": password});
 
+      // Only proceed if valid user exists
       if (result != null) {
         final user = User.fromJson(result);
         emit(state.copyWith(user: user));
@@ -78,6 +80,8 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(isBusy: false));
       final existingUser =
           await usersCollection.findOne({"username": username});
+
+      // Do not proceed if user exists
       if (existingUser != null) {
         emit(state.copyWith(errorMessage: "User already exists"));
         return false;
@@ -107,8 +111,11 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(isBusy: false));
       final user =
           await usersCollection.findOne({"username": username, "name": name});
+
+      // Only proceed if valid user exists
       if (user == null) {
-        emit(state.copyWith(errorMessage: "Username and name does not match"));
+        emit(state.copyWith(
+            errorMessage: "Username and Full name does not match"));
         return false;
       }
 
@@ -132,7 +139,9 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  /// Log out user from the application
   Future<void> logoutUser() async {
+    // Remove stored login key from cache
     prefs.remove(Constants.loggedInUser);
     emit(state.copyWith(logoutUser: true));
   }

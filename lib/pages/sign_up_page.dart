@@ -5,6 +5,9 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
 import 'package:techcloudpro_demo/pages/login_page.dart';
 
+/// SignUpPage: The page for creating an account for a new user.
+/// User needs to provide unique valid username and passwords.
+/// AUTHOR: Yogendra J Pai
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -53,7 +56,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset("assets/techcloud_logo.png"),
+                    //Image.asset("assets/techcloud_logo.png"),
                     const SizedBox(height: 16.0),
                     Text(
                       "User Registration",
@@ -179,11 +182,14 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
+  /// Title for textfield widgets
   _titleWidget(String title) => Text(
         title,
         textAlign: TextAlign.center,
       );
 
+  /// Validates the username provided so that there is atlease 6 characters.
+  /// And it contains only alphabets, numbers and allowed special characters.
   String? usernameValidator(String? text) {
     if ((text?.trim().length ?? 0) < 6) {
       return "Please provide atleast 6 characters";
@@ -196,6 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return null;
   }
 
+  /// Validates password so that it contains atleast 8 characters with only alphabets and numbers
   String? passwordValidator(String? text) {
     if ((text?.length ?? 0) < 8) {
       return "Please provide atleast 8 characters";

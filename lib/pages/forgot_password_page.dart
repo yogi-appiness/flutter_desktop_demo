@@ -5,6 +5,9 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 import 'cubit/login_cubit.dart';
 
+/// Forgot password page where user can reset their password if their full name and username provided right.
+/// AUTHOR: Yogendra J Pai
+
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
 
@@ -54,7 +57,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset("assets/techcloud_logo.png"),
+                    //Image.asset("assets/techcloud_logo.png"),
                     const SizedBox(height: 16.0),
                     Text(
                       "Forgot Password",
@@ -189,6 +192,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     );
   }
 
+  /// Password validator. Checks if the value provided has the desired length and characters allowed
   String? passwordValidator(String? text) {
     if ((text?.length ?? 0) < 8) {
       return "Please provide atleast 8 characters";
@@ -201,6 +205,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return null;
   }
 
+  /// Confirm password validator.
+  /// Checks if the value is same as the new password field and then validates it
   String? cnfrmPasswordValidator(String? text) {
     if (newPwdController.text != confirmPwdController.text) {
       return "Passwords do not match";
@@ -209,6 +215,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return passwordValidator(text);
   }
 
+  /// Title widget for textfields
   _titleWidget(String title) => Text(
         title,
         textAlign: TextAlign.center,

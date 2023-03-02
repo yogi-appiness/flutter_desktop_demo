@@ -1,5 +1,6 @@
 import 'package:mongo_dart/mongo_dart.dart';
 
+/// User data model with the necessary fields
 class User {
   User({
     required this.id,
@@ -10,13 +11,25 @@ class User {
     this.phoneNumber,
   });
 
+  /// Unique id for user
   final ObjectId id;
+
+  /// Full name of user
   final String name;
+
+  /// Username of user
   final String username;
+
+  /// Password
   final String password;
+
+  /// Email
   final String? email;
+
+  /// User's phone number
   final String? phoneNumber;
 
+  /// Copy with function
   User copyWith({
     ObjectId? id,
     String? name,
@@ -34,6 +47,7 @@ class User {
         phoneNumber: phoneNumber ?? this.phoneNumber,
       );
 
+  /// Convert map into user object
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["_id"],
         name: json["name"],
@@ -43,6 +57,7 @@ class User {
         phoneNumber: json["phone_number"],
       );
 
+  /// Convert user object to map
   Map<String, dynamic> toJson() => {
         "_id": id,
         "name": name,

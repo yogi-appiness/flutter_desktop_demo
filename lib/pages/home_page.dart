@@ -4,6 +4,10 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
 
+/// Home Page: Dashboard page where there are 2 sections.
+/// Left pane where users can edit the GDP values and sumbit.
+/// Right pane contains the pie chart with the GDP values provided by user
+/// AUTHOR: Yogendra J Pai
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // Initialize with dummy values
   Map<String, int> dataMap = {
     "consumption": 329912,
     "investment": 234322,
@@ -28,27 +33,30 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final user = BlocProvider.of<LoginCubit>(context).state.user;
     List<ChartData> chartData = [];
+    // Create chart entries based on the map data.
     dataMap.forEach(
       (key, value) {
         chartData.add(ChartData(key.toUpperCase(), value));
       },
     );
+    final user = BlocProvider.of<LoginCubit>(context).state.user;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        foregroundColor: Colors.red,
-        title: Image.asset(
-          "assets/techcloud_logo.png",
-          width: 240.0,
+        foregroundColor: Colors.pink,
+        title: const Text(
+          "TechCloud Dashboard",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
         ),
+        //Image.asset("assets/techcloud_logo.png",width: 240.0),
         actions: [
           IconButton(
-              onPressed: () {
-                BlocProvider.of<LoginCubit>(context).logoutUser();
-              },
-              icon: const Icon(Icons.logout)),
+            onPressed: () {
+              BlocProvider.of<LoginCubit>(context).logoutUser();
+            },
+            icon: const Icon(Icons.logout),
+          ),
         ],
       ),
       body: Stack(
@@ -64,10 +72,10 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(36.0),
                   child: Text(
-                    "Hi ${user?.name}, Welcome to TechCloudPro Dashboard.",
+                    "Hi ${user?.name}, Welcome to TechCloud Dashboard.",
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 24.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -270,6 +278,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  /// Validate the GDP values so that its only a numeric value
   String? gdpValidator(String? text) {
     if (text?.isEmpty ?? true) {
       return "Field cannot be empty";
@@ -282,6 +291,7 @@ class _HomePageState extends State<HomePage> {
     return null;
   }
 
+  // Text field title
   _titleWidget(String title) => Text(
         title,
         textAlign: TextAlign.center,
@@ -289,6 +299,7 @@ class _HomePageState extends State<HomePage> {
       );
 }
 
+/// Object for chart data entry
 class ChartData {
   ChartData(this.x, this.y);
   final String x;

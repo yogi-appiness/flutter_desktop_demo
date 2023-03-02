@@ -11,11 +11,13 @@ void main() async {
   runApp(const MyApp());
 }
 
+/// Root application
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Initialise the state management at the root
     return BlocProvider<LoginCubit>(
       create: (context) => LoginCubit(),
       child: MaterialApp(
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
   Widget _body() {
     return BlocConsumer<LoginCubit, LoginState>(
       listenWhen: (previous, current) => current.errorMessage != null,
+      // Listens for any error messages
       listener: (context, state) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
@@ -56,6 +59,7 @@ class MyApp extends StatelessWidget {
         ));
       },
       builder: (context, state) {
+        // If it is a busy state.
         if (state.isBusy) {
           return Stack(
             fit: StackFit.expand,
@@ -85,10 +89,12 @@ class MyApp extends StatelessWidget {
           );
         }
 
+        // Display home page if user is logged in
         if (state.user != null) {
           return const HomePage();
         }
 
+        // Initial intro page
         return const IntroPage();
       },
     );

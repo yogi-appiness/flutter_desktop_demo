@@ -1,5 +1,7 @@
 part of 'login_cubit.dart';
 
+/// State which is used by the cubit state management.
+/// AUTHOR: Yogendra J Pai
 class LoginState extends Equatable {
   const LoginState({
     this.user,
@@ -7,7 +9,7 @@ class LoginState extends Equatable {
     this.errorMessage,
   });
 
-  /// Logged in user if exists
+  /// User data if logged in
   final User? user;
 
   /// Whether busy state or not
@@ -16,6 +18,7 @@ class LoginState extends Equatable {
   /// Error
   final String? errorMessage;
 
+  /// Copy with function
   LoginState copyWith(
           {User? user,
           bool? isBusy,
