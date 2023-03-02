@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
-import 'package:techcloudpro_demo/pages/login_page.dart';
+import 'package:flutter_desktop_demo/pages/cubit/login_cubit.dart';
+import 'package:flutter_desktop_demo/pages/login_page.dart';
 
 /// SignUpPage: The page for creating an account for a new user.
 /// User needs to provide unique valid username and passwords.

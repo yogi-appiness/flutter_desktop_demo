@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:techcloudpro_demo/pages/login_page.dart';
-import 'package:techcloudpro_demo/pages/sign_up_page.dart';
+import 'package:flutter_desktop_demo/pages/login_page.dart';
+import 'package:flutter_desktop_demo/pages/sign_up_page.dart';
 
 /// IntroPage: The page which is shown at the start of the application
 /// User can navigate to Login or register page from here

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:techcloudpro_demo/pages/home_page.dart';
+import 'package:flutter_desktop_demo/pages/home_page.dart';
 
 import 'pages/cubit/login_cubit.dart';
 import 'pages/intro_page.dart';
@@ -73,16 +73,16 @@ class MyApp extends StatelessWidget {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.white,
-                      ),
-                      margin: const EdgeInsets.only(bottom: 48.0),
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset("assets/techcloud_logo.png")),
-                  const CircularProgressIndicator(
+                children: const [
+                  // Container(
+                  //     decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(8.0),
+                  //       color: Colors.white,
+                  //     ),
+                  //     margin: const EdgeInsets.only(bottom: 48.0),
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Image.asset("assets/techcloud_logo.png")),
+                  CircularProgressIndicator(
                     color: Colors.white,
                   ),
                 ],

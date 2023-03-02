@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:techcloudpro_demo/pages/cubit/login_cubit.dart';
+import 'package:flutter_desktop_demo/pages/cubit/login_cubit.dart';
 
 /// Home Page: Dashboard page where there are 2 sections.
 /// Left pane where users can edit the GDP values and sumbit.

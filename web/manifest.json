@@ -1,6 +1,6 @@
 {
-    "name": "techcloudpro_demo",
-    "short_name": "techcloudpro_demo",
+    "name": "flutter_desktop_demo",
+    "short_name": "flutter_desktop_demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

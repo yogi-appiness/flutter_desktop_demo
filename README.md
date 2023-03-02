@@ -3,11 +3,11 @@
 An application where users can SignUp and Login into the User dashboard
 
 ### Screenshots
-![alt text](https://user-images.githubusercontent.com/117373571/222362720-6a2e91d5-8011-4d5b-ba13-c88b2f75c6b7.png)
-![alt text](https://user-images.githubusercontent.com/117373571/222362771-6c627b0f-8726-43d4-adbe-3cc4a3de9f0b.png)
-![alt text](https://user-images.githubusercontent.com/117373571/222362829-889a8703-1803-4c07-ba64-6918770fe389.png)
-![alt text](https://user-images.githubusercontent.com/117373571/222362846-31b4e637-dc8d-412c-bd5e-bc1d7f73affa.png)
-![alt text](https://user-images.githubusercontent.com/117373571/222362880-c8913e22-01fb-4c67-b1ba-f848402fe1e1.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222376614-6361a558-5db3-4e1a-8572-da821d805400.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222378116-35976931-1b3e-41ca-9fdb-ea934b504769.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222377133-8c6fb1d8-b144-4737-b855-459f123bc4d3.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222376912-a3538838-8893-40f3-bf8e-b61b6159e7e6.png)
+![alt text](https://user-images.githubusercontent.com/117373571/222378267-9b382d04-5697-488b-8d70-1a2020042d5f.png)
 
 ## Features/Functionality
 - App Intro page on startup
