@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       create: (context) => LoginCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'TechCloudPro Demo',
+        title: 'Flutter Desktop Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.white70,

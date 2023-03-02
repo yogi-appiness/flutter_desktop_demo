@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.pink,
         title: const Text(
-          "TechCloud Dashboard",
+          "Flutter Desktop Dashboard",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
         ),
         //Image.asset("assets/techcloud_logo.png",width: 240.0),
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(36.0),
                   child: Text(
-                    "Hi ${user?.name}, Welcome to TechCloud Dashboard.",
+                    "Hi ${user?.name}, Welcome to Demo Desktop Dashboard.",
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,

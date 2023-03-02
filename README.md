@@ -1,6 +1,6 @@
-# TechCloudPro Flutter desktop application
+# Flutter Desktop Demo Application
 
-A demo application where users can SignUp and Login into the User dashboard
+An application where users can SignUp and Login into the User dashboard
 
 ### Screenshots
 ![alt text](https://user-images.githubusercontent.com/117373571/222362720-6a2e91d5-8011-4d5b-ba13-c88b2f75c6b7.png)

@@ -4,7 +4,7 @@ project(techcloudpro_demo LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "techcloudpro_demo")
+set(BINARY_NAME "Flutter Desktop Demo")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
